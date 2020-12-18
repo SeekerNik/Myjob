@@ -1,9 +1,9 @@
-import React from 'react'
+import React from "react";
 
 export default function Candidate() {
-    return (
-        <div>
-            this is Candidate page
-        </div>
-    )
+  return (
+    <div>
+      <h1>this is Candidate Page</h1>
+    </div>
+  );
 }

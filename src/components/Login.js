@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import { Container, Form, Button, Card, Alert } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
+import { db } from "../firebase";
 
 export default function Login() {
   const emailRef = useRef();
@@ -10,19 +11,39 @@ export default function Login() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const history = useHistory();
+  let role = "";
 
   async function handleSubmit(e) {
     e.preventDefault();
-
+    // db.collection("userdata")
+    //   .get()
+    //   .then(function (doc) {
+    //     if (doc.exist) {
+    //       var mail = doc.data();
+    //       console.log(mail);
+    //     }
+    //   });
+    db.collection("userdata")
+      .get()
+      .then(function (querySnapshot) {
+        querySnapshot.forEach(function (doc) {
+          if (doc.id === emailRef.current.value) {
+            role = doc.data().role;
+          }
+        });
+      });
     try {
       setError("");
       setLoading(true);
       await login(emailRef.current.value, passRef.current.value);
-      history.push("/recruiter");
     } catch {
       setError("Failed to log in");
     }
-
+    if (role === "Recruiter") {
+      history.push("/recruiter");
+    } else {
+      history.push("/candidate");
+    }
     setLoading(false);
   }
 
@@ -31,10 +52,11 @@ export default function Login() {
       className="d-flex align-items-center justify-content-center"
       style={{ minHeight: "80vh" }}
     >
-      <div className="w-100" style={{ maxWidth: "40vh" }}>
+      <div className="w-100" style={{ maxWidth: "60vh" }}>
         <Card>
           <Card.Body>
-            <h2 className="text-center mb-4">Log In</h2>
+            <h4>Login</h4>
+            <br />
             {error && <Alert variant="danger">{error}</Alert>}
             <Form onSubmit={handleSubmit}>
               <Form.Group id="email">
@@ -50,13 +72,13 @@ export default function Login() {
               </Button>
             </Form>
             <div className="w-100 text-center mt-3">
-              <Link to="/forgot-password">Forgot Password?</Link>
+              <Link to="/forgot-password">Forgot your password?</Link>
+            </div>
+            <div className="w-100 text-center mt-2">
+              New to MyJobs? <Link to="/signup">Create an account</Link>
             </div>
           </Card.Body>
         </Card>
-        <div className="w-100 text-center mt-2">
-          Need an account? <Link to="/signup">Sign Up</Link>
-        </div>
       </div>
     </Container>
   );
