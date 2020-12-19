@@ -8,8 +8,9 @@ import PrivateRoute from "./PrivateRoute";
 import ForgotPassword from "./ForgotPassword";
 import Recruiter from "./Recruiter";
 import Candidate from "./Candidate";
-import { Navbar, NavbarBrand, Button } from "react-bootstrap";
+import { Navbar, NavbarBrand } from "react-bootstrap";
 import "../index.css";
+import LoginSignupBtn from "./LoginSignupBtn";
 
 function App() {
   return (
@@ -18,18 +19,12 @@ function App() {
         <Navbar
           style={{ borderBottom: "1px solid", color: "white", margin: "0 5%" }}
         >
-          <NavbarBrand>
+          <NavbarBrand href="/">
             <span style={{ color: "white" }}>My</span>
             <span style={{ color: "#43AFFF" }}>Jobs</span>
           </NavbarBrand>
           <div style={{ margin: "0 40%" }}></div>
-          <Button
-            className="nav-item px-3"
-            style={{ backgroundColor: "#506592" }}
-            href="/login"
-          >
-            Login/Signup
-          </Button>
+          <LoginSignupBtn isLoggedIn={false}/>
         </Navbar>
         <Router>
           <AuthProvider>

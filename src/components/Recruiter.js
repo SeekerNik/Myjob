@@ -1,11 +1,49 @@
-import React from 'react'
+import React from "react";
+import { CardDeck, Container } from "react-bootstrap";
+import JobCard from "./JobCard";
+import "./Recruiter.css";
 
-function Recruiter() {
+function Recruiter(props) {
+  console.log(props);
   return (
-    <div>
-      <h1>this is the Recruiter Page</h1>
-    </div>
-  )
+    <Container>
+      <h5>Jobs posted by you</h5>
+      <CardDeck>
+        <JobCard
+          title={"UI/UX"}
+          description={
+            "cursus mattis molestie a iaculis at erat pellentesque adipiscing commodo elit at imperdiet dui accumsan sit amet nulla facilisi morbi"
+          }
+          location={"Delhi"}
+          role={"Recruiter"}
+        />
+        <JobCard
+          title={"UI/UX"}
+          description={
+            "cursus mattis molestie a iaculis at erat pellentesque adipiscing commodo elit at imperdiet dui accumsan sit amet nulla facilisi morbi"
+          }
+          location={"Delhi"}
+          role={"Recruiter"}
+        />
+        <JobCard
+          title={"UI/UX"}
+          description={
+            "cursus mattis molestie a iaculis at erat pellentesque adipiscing commodo elit at imperdiet dui accumsan sit amet nulla facilisi morbi"
+          }
+          location={"Delhi"}
+          role={"Recruiter"}
+        />
+        <JobCard
+          title={"UI/UX"}
+          description={
+            "cursus mattis molestie a iaculis at erat pellentesque adipiscing commodo elit at imperdiet dui accumsan sit amet nulla facilisi morbi"
+          }
+          location={"Delhi"}
+          role={"Recruiter"}
+        />
+      </CardDeck>
+    </Container>
+  );
 }
 
-export default Recruiter
+export default Recruiter;

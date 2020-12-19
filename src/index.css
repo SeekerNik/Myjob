@@ -3,10 +3,6 @@ body {
   background-color: #EDF6FF !important;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
-}
-
 .main, #root {
   height: 100%;
 }
@@ -36,4 +32,6 @@ html, body {
   margin-left: 65px;
   font-weight: bold;
 }
+
+
 
