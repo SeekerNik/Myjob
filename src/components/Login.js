@@ -15,14 +15,7 @@ export default function Login() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    // db.collection("userdata")
-    //   .get()
-    //   .then(function (doc) {
-    //     if (doc.exist) {
-    //       var mail = doc.data();
-    //       console.log(mail);
-    //     }
-    //   });
+
     db.collection("userdata")
       .get()
       .then(function (querySnapshot) {

@@ -33,7 +33,7 @@ export default function ForgotPassword() {
       <div className="w-100" style={{ maxWidth: "60vh" }}>
         <Card>
           <Card.Body>
-            <h5>Forgot your password?</h5>
+            <h4>Forgot your password?</h4>
             {error && <Alert variant="danger">{error}</Alert>}
             {message && <Alert variant="success">{message}</Alert>}
             <p>
