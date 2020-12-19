@@ -13,7 +13,7 @@ export default function JobCard(props) {
           <Card.Text style={{ lineHeight: "1rem" }}>
             {props.description}
           </Card.Text>
-          <CardGroup className="d-flex">
+          <CardGroup>
             <IoMdPin />
             <Card.Text>{props.location}</Card.Text>
             {props.isCandidate ? (
