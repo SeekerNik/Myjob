@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardDeck } from "react-bootstrap";
+import { Card, CardDeck, Button } from "react-bootstrap";
 
 export default function Home() {
   return (
@@ -11,6 +11,16 @@ export default function Home() {
           <span style={{ color: "white" }}>My</span>
           <span style={{ color: "#43AFFF" }}>Jobs</span>
         </h1>
+        <br />
+        <Button
+          href="/signup"
+          style={{
+            backgroundColor: "#43AFFF",
+            border: "transparent",
+          }}
+        >
+          Get Started
+        </Button>
       </div>
       <div className="why-us">
         <h5>Why Us</h5>

@@ -14,8 +14,8 @@ import LoginSignupBtn from "./LoginSignupBtn";
 
 function App() {
   return (
-    <div class="main">
-      <div class="upper-half">
+    <div className="main">
+      <div className="upper-half">
         <Navbar
           style={{ borderBottom: "1px solid", color: "white", margin: "0 5%" }}
         >
@@ -39,7 +39,7 @@ function App() {
           </AuthProvider>
         </Router>
       </div>
-      <div class="lower-half"></div>
+      <div className="lower-half"></div>
     </div>
   );
 }
